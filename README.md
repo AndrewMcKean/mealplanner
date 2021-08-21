@@ -12,4 +12,5 @@ code which could document the state of our cupboards as well. This, in tandem, w
 Ideally this would be developed, in the long term, as some sort of user friendly app but I currently have little to no experience in that sort of front-end stuff and so will
 concentrate on the back-end stuff in the short term. 
 
-The project should be simple enough and should give me the opportunity to consolidate the learning from my university studies so far.
+The project should be simple enough and should give me the opportunity to consolidate the learning from my university studies so far while also allowing me to get to
+grips with github which I intend to use going forward.
