@@ -1,7 +1,7 @@
 # mealplanner
 
 Grand aim
-Create a meal planning app for personal use which can assign meals based on the days my partner is not working. 
+Create a meal planning app for personal use which can assign meals to days of the week.
 
 Currently I have two functions which takes 3 or 4 days as inputs and assign random meals from a list of meals we usually eat to the days not included
 as arguments i.e the days my partner is not working.
