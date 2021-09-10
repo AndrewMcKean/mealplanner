@@ -9,10 +9,12 @@ def daysThree(day1, day2, day3):
     working = [day1, day2, day3]
     threeDayWeek = random.sample(data.dinners, 4)
     index = 0
+    
     for x in data.mealsDict.keys():
         if x not in working:
             data.mealsDict.update({x : threeDayWeek[index]})
             index += 1
+    
     for i in data.mealsDict.items():
         print(i)
 
@@ -22,10 +24,12 @@ def daysFour(day1, day2, day3, day4):
     working = [day1, day2, day3, day4]
     fourDayWeek = random.sample(data.dinners, 3)
     index = 0
+    
     for x in data.mealsDict.keys():
         if x not in working:
             data.mealsDict.update({x : fourDayWeek[index]})
             index += 1
+    
     for i in data.mealsDict.items():
         print(i)
 
@@ -34,23 +38,17 @@ def daysFour(day1, day2, day3, day4):
 #Output: Mealplan for dinners for the week.
 
 def annualLeave():
-
     index = 0
-
     alWeek = random.sample(data.dinners, 7)
 
     for x in data.mealsDict.keys():
-
         data.mealsDict.update({ x : alWeek[index]})
-
         index += 1
 
- 
-
     for i in data.mealsDict.items():
-
         print(i)
-                
+
+#Basic tests - they only work properly one at a time               
 #daysThree('Monday', 'Tuesday', 'Wednesday')
-daysFour('Monday', 'Tuesday', 'Thursday', 'Saturday')
+#daysFour('Monday', 'Tuesday', 'Thursday', 'Saturday')
 #annualLeave()
