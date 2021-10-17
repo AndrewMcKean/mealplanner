@@ -32,8 +32,7 @@ def mealplan(*working):
             keypair += i
             keypair += ": "
             keypair += data.mealsDict.get(i)
-            f.write(keypair)
-            f.write("/n")
+            f.write(i)
         print(keypair)
         f.close()
     else:
@@ -64,5 +63,10 @@ def annualLeave():
         print(i)
 
 #Basic tests - they only work properly one at a time               
-mealplan('Tuesday', 'Wednesday')
+#mealplan('Tuesday', 'Wednesday')
 #annualLeave()
+
+keypair = "John"
+f = open('mealset.txt', 'a')
+f.write("John")
+f.close()
