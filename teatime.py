@@ -7,19 +7,44 @@ import mealsData as data
 #Output: Mealplan for dinners for the week. Input days are not assigned dinner.
 def mealplan(*working):
     working = list(working)
-    threeDayWeek = random.sample(data.dinners, 4)
+    daysWorking = random.sample(data.dinners, 7 - len(working))
     index = 0
+    print(len(working))
+    print(daysWorking)
     
     if working == []:
         return annualLeave()
 
     for x in data.mealsDict.keys():
         if x not in working:
-            data.mealsDict.update({x : threeDayWeek[index]})
+            data.mealsDict.update({x : daysWorking[index]})
             index += 1
     
     for i in data.mealsDict.items():
         print(i)
+    
+    userCheck = input("Are you happy with these meals? Y/N ")
+
+    if userCheck == "Y":
+        f = open("mealset.txt", "a")
+        for i in data.mealsDict.keys():
+            keypair = ""
+            keypair += i
+            keypair += ": "
+            keypair += data.mealsDict.get(i)
+            f.write(keypair)
+            f.write("/n")
+        print(keypair)
+        f.close()
+    else:
+        x = input("Would you like to try again? Y/N ")
+        if x == "Y":
+            mealplan(working)
+        elif x == "N":
+            pass
+        else:
+            print("Y or N are only valid answers. Please try again")
+
 
 
 
@@ -39,5 +64,5 @@ def annualLeave():
         print(i)
 
 #Basic tests - they only work properly one at a time               
-#mealplan()
+mealplan('Tuesday', 'Wednesday')
 #annualLeave()
