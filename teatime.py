@@ -3,26 +3,8 @@
 import random
 import mealsData as data
 
-#Input: Three string arguments, these must be capitalised days of the week
-#Output: Mealplan for dinners for the week. Input days are not assigned dinner.
-def mealplan(*working):
-    working = list(working)
-    daysWorking = random.sample(data.dinners, 7 - len(working))
-    index = 0
-    print(len(working))
-    print(daysWorking)
-    
-    if working == []:
-        return annualLeave()
-
-    for x in data.mealsDict.keys():
-        if x not in working:
-            data.mealsDict.update({x : daysWorking[index]})
-            index += 1
-    
-    for i in data.mealsDict.items():
-        print(i)
-    
+#Function to save user meals. Not called directly by the user.
+def userCheck():
     userCheck = input("Are you happy with these meals? Y/N ")
 
     if userCheck == "Y":
@@ -44,7 +26,25 @@ def mealplan(*working):
         else:
             print("Y or N are only valid answers. Please try again")
 
+#Input: Three string arguments, these must be capitalised days of the week
+#Output: Mealplan for dinners for the week. Input days are not assigned dinner.
+def mealplan(*working):
+    working = list(working)
+    daysWorking = random.sample(data.dinners, 7 - len(working))
+    index = 0
+    
+    if working == []:
+        return annualLeave()
 
+    for x in data.mealsDict.keys():
+        if x not in working:
+            data.mealsDict.update({x : daysWorking[index]})
+            index += 1
+    
+    for i in data.mealsDict.items():
+        print(i)
+
+    userCheck()
 
 
 #Input: No arguments
@@ -61,6 +61,8 @@ def annualLeave():
 
     for i in data.mealsDict.items():
         print(i)
+
+    userCheck()
 
 #Basic tests - they only work properly one at a time               
 #mealplan('Tuesday', 'Wednesday')
