@@ -4,7 +4,7 @@ import mealsData as data
 import teatime
 
 #Function to save user meals.  Not called  directly by the user.
-def userSave():
+def saveMeals():
     userCheck = input("Are you happy with these meals? Y/N ")
 
     if userCheck == "Y":

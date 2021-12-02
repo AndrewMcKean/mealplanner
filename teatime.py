@@ -14,10 +14,12 @@ import userSave as save
 #Input: Three string arguments, these must be capitalised days of the week
 #Output: Mealplan for dinners for the week. Input days are not assigned dinner.
 def mealplan():
-    working = input('What days is Ciara working?')
-    working = working.split(", ")
-
+    working = input('What days is Ciara working? ')
+    if len(working) > 1:
+        working = working.split(", ")
+    print(working)
     daysWorking = random.sample(data.dinners, 7 - len(working))
+    print(daysWorking)
     index = 0
     
     
@@ -32,7 +34,7 @@ def mealplan():
     for i in data.mealsDict.items():
         print(i)
 
-    save.userSave()
+    save.saveMeals()
 
 
 #Input: No arguments
@@ -50,9 +52,10 @@ def annualLeave():
     for i in data.mealsDict.items():
         print(i)
 
-    save.userSave()
+    save.saveMeals()
 
 #Basic tests - they only work properly one at a time               
 #mealplan('Tuesday', 'Wednesday')
 #annualLeave()
 
+mealplan()
