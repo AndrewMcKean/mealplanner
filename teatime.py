@@ -1,37 +1,25 @@
 #! /usr/bin/python3
 #Teatime
+#Teatime
 import random
 import mealsData as data
+import userSave as save
 
 #Function to save user meals. Not called directly by the user.
-def userCheck():
-    userCheck = input("Are you happy with these meals? Y/N ")
 
-    if userCheck == "Y":
-        f = open("mealset.txt", "a")
-        for i in data.mealsDict.keys():
-            keypair = ""
-            keypair += i
-            keypair += ": "
-            keypair += data.mealsDict.get(i)
-            f.write(i)
-        print(keypair)
-        f.close()
-    else:
-        x = input("Would you like to try again? Y/N ")
-        if x == "Y":
-            mealplan(working)
-        elif x == "N":
-            pass
-        else:
-            print("Y or N are only valid answers. Please try again")
+#Cycle works now - not happy feeds back into mealplan function
+#However, changing the days of the week doesn't work at that point.
+#Not sure why yet.
 
 #Input: Three string arguments, these must be capitalised days of the week
 #Output: Mealplan for dinners for the week. Input days are not assigned dinner.
-def mealplan(*working):
-    working = list(working)
+def mealplan():
+    working = input('What days is Ciara working?')
+    working = working.split(", ")
+
     daysWorking = random.sample(data.dinners, 7 - len(working))
     index = 0
+    
     
     if working == []:
         return annualLeave()
@@ -44,12 +32,12 @@ def mealplan(*working):
     for i in data.mealsDict.items():
         print(i)
 
-    userCheck()
+    save.userSave()
 
 
 #Input: No arguments
-
 #Output: Mealplan for dinners for the week.
+#Helper function - not called by the user.
 
 def annualLeave():
     index = 0
@@ -62,13 +50,9 @@ def annualLeave():
     for i in data.mealsDict.items():
         print(i)
 
-    userCheck()
+    save.userSave()
 
 #Basic tests - they only work properly one at a time               
 #mealplan('Tuesday', 'Wednesday')
 #annualLeave()
 
-keypair = "John"
-f = open('mealset.txt', 'a')
-f.write("John")
-f.close()
